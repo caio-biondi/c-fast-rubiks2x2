@@ -23,7 +23,8 @@ static inline void *MallocOrDie(size_t MemSize)
     return AllocMem;
 }
 
-int* subgroup_generated(int perm[PERM_LEN], int gens[6][PERM_LEN]) {
+int* subgroup_generated(int perm[PERM_LEN]) {
+    int gens[6][PERM_LEN] = {U,UP,R,RP,F,FP};
     int vec[VEC_LEN] = {-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1};
 
     int e[PERM_LEN] = {1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21};
@@ -76,27 +77,18 @@ int* subgroup_generated(int perm[PERM_LEN], int gens[6][PERM_LEN]) {
     return NULL;
 }
 
-void solve(int state[PERM_LEN]) {
-    int gens[6][PERM_LEN] = {U,UP,R,RP,F,FP};
-    const char moves[6][3] = {"U", "UP", "R", "RP", "F", "FP"};
-    int * x = subgroup_generated(state, gens);
-    int i = 0;
-    while(i < 14) {
-        int y = x[i];
-        if(y != -1) {
-            printf("%s ", moves[y]);
-        }
-        ++i;
-    }
-    free(x);
-}
-
-int main() {
-    int e[21] = {1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21};
-
-    int state[21] = {10, 11, 12, 4, 5, 6, 16, 17, 18, 21, 19, 20, 1, 2, 3, 14, 15, 13, 7, 8, 9};
-
-    solve(state);
-
-    return 0;
-}
+// void solve(int state[PERM_LEN]) {
+//     int gens[6][PERM_LEN] = {U,UP,R,RP,F,FP};
+//     const char moves[6][3] = {"U", "UP", "R", "RP", "F", "FP"};
+//     int * x = subgroup_generated(state, gens);
+//     int i = 0;
+//     if (!x) {return;}
+//     while(i < 14) {
+//         int y = x[i];
+//         if(y != -1) {
+//             printf("%s ", moves[y]);
+//         }
+//         ++i;
+//     }
+//     free(x);
+// }
