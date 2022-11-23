@@ -1,13 +1,25 @@
-from flask import Flask, request, render_template
-from solve import solve
+from flask import Flask, render_template, request, session, jsonify
+from fun import solve_cube
 
 app = Flask(__name__)
+app.secret_key = 'super secret key'
 
 @app.route("/")
-def hello_world():
-    return render_template('home.html')
+def hello():
+    return render_template('index.html')
 
-@app.route('/', methods=["GET", "POST"])
-def handle_data():
-    res = solve()
-    return res
+@app.route("/", methods=['POST'])
+def task():
+    print(type(request.form.get('str')))
+    session["str"] = request.form.get('str') 
+    return render_template("redirect.html")
+
+@app.route("/slow/")
+def slow():
+    session["res"] = solve_cube(session["str"])
+    return jsonify("oh so slow")
+
+@app.route("/done/")
+def done():
+    return session.get("res")
+
