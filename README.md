@@ -4,3 +4,6 @@ I was motivated to work on this project as a result of a MATH397C assingment at 
 
 ## How It Works
 1. The orientation of the cube will always be as decribed in the picture below, no matter which state we are dealing with. We will place green/white/red in the back.
+<p align="center">
+  <img src="https://github.com/caio-biondi/c-fast-rubiks2x2/blob/master/cube-orientation.jpg" alt="Size Limit CLI" width="500">
+</p>
