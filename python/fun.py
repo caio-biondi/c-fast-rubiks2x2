@@ -1,4 +1,6 @@
 import ctypes
+from functools import reduce
+
 def solve_cube(str):
     f = ctypes.CDLL('/Users/apple/Desktop/c-fast-rubiks2x2/C/librubiks.so').subgroup_generated
     
@@ -29,9 +31,6 @@ def solve_cube(str):
         return "Invalid State"
         
     py_state = tuple(py_state)
-
-    # py_state = (10, 11, 12, 4, 5, 6, 16, 17, 18, 21, 19, 20, 1, 2, 3, 14, 15, 13, 7, 8, 9)
-    # py_state = (1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21)
 
     state = (ctypes.c_int * 21)()
 

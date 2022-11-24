@@ -1,19 +1,23 @@
 <!DOCTYPE html>
 <head>
   <style>
-    .st-input{
-        height: 200px;
-        font-size: 16pt
+    .st-form {
+      text-align: center;
+      
+    }
+    .st-input {
+      font-size: 16pt;
     }
   </style>
 </head>
 <html>
   <body>
-    <form method="post">
-      <div>
-        <input class="st-input" type="text" , name="str" , placeholder="oybogyowgobwwbrrbygry" />
+    <form class="st-form" , method="post">
+      <div class="st-input">
+        <label>Enter the state: </label>
+        <input type="text" , name="str" , placeholder="oybogyowgobwwbrrbygry" />
+        <input type="submit" value="Solve!" />
       </div>
-      <div><input type="submit" value="Submit" /></div>
     </form>
   </body>
 </html>
